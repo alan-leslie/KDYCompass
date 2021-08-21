@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="angle" type="androidx.lifecycle.LiveData&lt;Integer>"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="kdy.places.compass.MainActivity"
+        android:background="@android:color/white"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/directionTextView"
+            app:angleAndDirection="@{angle}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"/>
+
+        <ImageView
+            android:id="@+id/compassImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/compass"
+            android:rotation="@{angle * -1}"
+            android:contentDescription="@string/compass_image_content_desc" />
+
+    </LinearLayout>
+</layout>
